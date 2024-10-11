@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-
+    android:background="#D8CFC4"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewPytanie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="TextView" />
 
     <LinearLayout
@@ -23,37 +22,37 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonTak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:backgroundTint="#00ff00"
 
-            android:text="Button" />
+            android:text="Tak" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonNie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:backgroundTint="#ff0000"
 
-            android:text="Button" />
+            android:text="Nie" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/buttonHint"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
 
-        android:text="Button" />
+        android:text="Podpowiedź" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonNext"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
 
-        android:text="Button" />
+        android:text="Następne Pytanie" />
 
 </LinearLayout>
