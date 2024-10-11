@@ -41,7 +41,31 @@ public class MainActivity extends AppCompatActivity {
         buttonT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Odpowiedź Tak", Toast.LENGTH_SHORT).show();
+                if(pytania.get(numerWyswietlanegoPytania).isPoprawnaOdpowiedz()){
+                    pytania.get(numerWyswietlanegoPytania).setCzyOdpowiedzianoPoprawnie(true);
+                    Toast.makeText(MainActivity.this, "Dobra odpowiedź", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    Toast.makeText(MainActivity.this, "Zła odpowiedź", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+        buttonN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!pytania.get(numerWyswietlanegoPytania).isPoprawnaOdpowiedz()){
+                    pytania.get(numerWyswietlanegoPytania).setCzyOdpowiedzianoPoprawnie(true);
+                    Toast.makeText(MainActivity.this, "Dobra odpowiedź", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                    Toast.makeText(MainActivity.this, "Zła odpowiedź", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
@@ -58,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     buttonNext.setVisibility(View.INVISIBLE);
                     buttonHint.setVisibility(View.INVISIBLE);
 
+                    textViewPytanie.setText("ilość zdobytych punktów: " + String.valueOf(podliczPunkty()) + "/3");
                 }
                 else{
                     textViewPytanie.setText(pytania.get(numerWyswietlanegoPytania).getTresc());
@@ -66,4 +91,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private int podliczPunkty(){
+        int suma = 0;
+        for (Pytanie pytanko: pytania) {
+            if (pytanko.isCzyOdpowiedzianoPoprawnie()){
+                suma++;
+            }
+        }
+        return suma;
+    }
+
+
 }
