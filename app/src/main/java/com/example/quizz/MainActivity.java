@@ -2,6 +2,7 @@ package com.example.quizz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
 
 
-        pytania.add(new Pytanie("Czy Niedźwiedź polarny je pingwiny?", false,"Zastanów się gdzie każde zwierzę żyje", R.drawable.polarny));
+        pytania.add(new Pytanie("Czy Niedźwiedź polarny je pingwiny?", false,"Zastanów się gdzie każde zwierzę żyje", R.drawable.neidziwedz));
         pytania.add(new Pytanie("Czy żyrafa może polizać się po uchu?", true, "Żyrafy mają bardzo długi język", R.drawable.zyrafa));
         pytania.add(new Pytanie("Zebry śpią na leżąco?", false, "???", R.drawable.zebra));
 
@@ -92,6 +93,16 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     wyswietlPytanie(numerWyswietlanegoPytania);
                 }
+            }
+        });
+
+        buttonHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intencja = new Intent(MainActivity.this, PodpowiedzActivity.class);
+                intencja.putExtra("PODPOWIEDZ",pytania.get(numerWyswietlanegoPytania).getPodpowiedz());
+
+                startActivity(intencja);
             }
         });
 
